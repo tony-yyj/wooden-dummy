@@ -5,6 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeroChildComponent} from './hero-child.component';
 import {HeroParentComponent} from './hero-parent.component';
+import {RouterTestModule} from './router-test/router-test.module';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import {HeroParentComponent} from './hero-parent.component';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        RouterTestModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
