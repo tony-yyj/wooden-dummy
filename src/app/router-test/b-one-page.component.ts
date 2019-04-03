@@ -11,6 +11,7 @@ export class BOnePageComponent implements OnInit {
     ) {
 
     }
+
     ngOnInit(): void {
         console.log('b-one page a params', this.activateRouter.snapshot.paramMap.get('a'));
         console.log('b-one page code', this.activateRouter.snapshot.queryParamMap.get('code'));
