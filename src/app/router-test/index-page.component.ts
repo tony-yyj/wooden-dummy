@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
     template: `
         <a (click)="jumpA()">A page</a>
         <a (click)="jumpB()">B page</a>
-        <a [routerLink]="['/b', {a: 3}]">B page</a>
+        <a [routerLink]="['/b', {a: 3}, 'b-1']">B page</a>
         <router-outlet></router-outlet>
     `,
     styles: [
