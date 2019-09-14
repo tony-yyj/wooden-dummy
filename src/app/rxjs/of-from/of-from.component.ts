@@ -2,7 +2,6 @@ import {Component, ElementRef, OnInit, Renderer2} from '@angular/core';
 import {concat, from, fromEvent, interval, of, timer} from 'rxjs';
 import {concatAll, map, switchMap, take} from 'rxjs/operators';
 import {fromPromise} from 'rxjs/internal-compatibility';
-import {Renderer3} from '@angular/core/src/render3/interfaces/renderer';
 
 @Component({
     selector: 'app-of-from',
