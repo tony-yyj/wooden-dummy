@@ -10,7 +10,7 @@ const routes: Routes = [
     },
     {
         path: 'rxjs',
-        loadChildren: './rxjs/rxjs.module#RxjsModule',
+        loadChildren: () => import('./rxjs/rxjs.module').then(m => m.RxjsModule),
     },
     {
         path: 'dynamic-form',
