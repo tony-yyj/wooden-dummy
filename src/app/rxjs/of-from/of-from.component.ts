@@ -26,9 +26,8 @@ export class OfFromComponent implements OnInit {
 
     ngOnInit() {
         // this.ofOperate();
-        // this.fromOperate();
+        this.fromOperate();
         // this.fromPromise();
-        this.fromEvent();
     }
 
 
@@ -68,23 +67,6 @@ export class OfFromComponent implements OnInit {
         );
     }
 
-    private fromEvent() {
-        fromEvent(document, 'click').subscribe((event: MouseEvent) => {
-            console.log('click', event);
-            // 获得坐标
-            const x = event.clientX;
-            const y = event.clientY;
 
-            const devDom = this.render.createElement('div');
-            devDom.className = 'lover';
-            this.render.setStyle(devDom, 'top', y + 'px');
-            this.render.setStyle(devDom, 'left', x + 'px');
-            this.render.appendChild(this.el.nativeElement, devDom);
-            // 500毫秒后删除dom
-            timer(500).subscribe( num => {
-                this.render.removeChild(this.el.nativeElement, devDom);
-            });
-        });
-    }
 
 }

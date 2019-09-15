@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { OfFromComponent } from './of-from/of-from.component';
 import {MatButtonModule, MatMenuModule} from '@angular/material';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { FromEventComponent } from './from-event/from-event.component';
 const router: Routes = [
     {
         path: '',
@@ -22,13 +23,17 @@ const router: Routes = [
             {
                 path: 'of-from',
                 component: OfFromComponent,
+            },
+            {
+                path: 'from-event',
+                component: FromEventComponent,
             }
         ]
     },
 ];
 
 @NgModule({
-    declarations: [CreateComponent, OfFromComponent, RxjsComponent],
+    declarations: [CreateComponent, OfFromComponent, RxjsComponent, FromEventComponent],
     imports: [
         CommonModule,
         RouterModule.forChild(router),

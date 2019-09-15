@@ -1,0 +1,33 @@
+.lover{
+    width: 10px;
+    height: 10px;
+    background: red;
+    position: absolute;
+    animation: 0.4s linear ops;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    li{
+        display: inline-block;
+        width: 400px;
+        height: 40px;
+        margin-bottom: 10px;
+        background: #fff;
+        border-bottom: 2px solid red;
+    }
+}
+
+@keyframes ops {
+    0% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(1.5);
+    }
+    100% {
+        transform: scaleX(2);
+    }
+}
