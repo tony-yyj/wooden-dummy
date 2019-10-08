@@ -1,8 +1,8 @@
 <p>from-event works!</p>
-<button mat-button #createButton >产生数据</button>
+<button mat-button #createButton>产生数据</button>
 <ul>
-    <li *ngFor="let item of [1, 2, 3, 4, 5]"
-
+    <li *ngFor="let item of list"
+        [@openClose]="item % 2 ? 'open': 'closed'"
     >
         {{item}} 范德萨发的方法的是否违反的双丰收
     </li>
