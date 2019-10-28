@@ -1,60 +1,51 @@
 import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {BehaviorSubject, fromEvent, timer} from 'rxjs';
 import {MatButton} from '@angular/material';
-import {animate, keyframes, state, style, transition, trigger} from '@angular/animations';
+import {animate, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
+import {fallColor, PairsPriceAnimation, raiseColor} from '../../animations/pairs-price.animation';
 
 @Component({
     selector: 'app-from-event',
     templateUrl: './from-event.component.html',
     styleUrls: ['./from-event.component.less'],
     animations: [
-        trigger('openClose', [
-            // state('open', style({
-            //     background: 'red',
-            //     opacity: 1,
-            // })),
-            // state('closed', style({
-            //     background: 'green',
-            //     opacity: 0.5,
-            // })),
-            // // transition('open => closed', [
-            // //     animate('1s'),
-            // // ]),
-            // transition('closed => open', [
-            //     animate('0.5s'),
-            // ]),
-            transition('* => closed', [
-                animate('2s ease', keyframes([
-                    style({
-                        background: 'linear-gradient(90deg, black, transparent)',
-                        offset: 0,
-                    }),
-                    style({
-                        background: 'linear-gradient(90deg, #333, transparent)',
-                        offset: 0.5,
-                    }),
-                    style({
-                        background: '#fff',
-                        offset: 1,
-                    })
-                ]))
+        trigger('priceChange', [
+            state('raise', style({
+                background: 'transparent',
+            })),
+            state('fall', style({
+                background: 'transparent',
+            })),
+            state('zero', style({
+                background: 'transparent',
+            })),
+            transition('zero <=> raise', [
+                useAnimation(PairsPriceAnimation, {
+                    params: {
+                        linearGradient: raiseColor,
+                    }
+                }),
             ]),
-
-            transition('* => open', [
-                animate('2s ease-in', keyframes([
-                    style({
-                        background: 'linear-gradient(90deg, black, transparent)',
-                        offset: 0,
-                    }),
-                    style({
-                        background: 'linear-gradient(90deg, #333, transparent)',
-                        offset: 0.5,
-                    }),
-                    style({
-                        background: '#fff',
-                        offset: 1,
-                    })
-                ]))
+            transition('fall => raise', [
+                useAnimation(PairsPriceAnimation, {
+                    params: {
+                        linearGradient: raiseColor,
+                    }
+                }),
+            ]),
+            transition('zero <=> fall', [
+                useAnimation(PairsPriceAnimation, {
+                    params: {
+                        linearGradient: fallColor,
+                    }
+                }),
+            ]),
+            transition('raise => fall', [
+                useAnimation(PairsPriceAnimation, {
+                    params: {
+                        linearGradient: fallColor,
+                    }
+                }),
             ]),
         ]),
     ]
@@ -65,7 +56,18 @@ export class FromEventComponent implements OnInit, AfterViewInit {
 
     data$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 
-    list: number[] =  [1, 2, 3, 4, 5];
+    list: { status: string, name: string }[] = [];
+
+    static getStatus(status) {
+        switch (status) {
+            case 'zero':
+                return 'raise';
+            case 'raise':
+                return 'fall';
+            case 'fall':
+                return 'raise';
+        }
+    }
 
     constructor(
         private el: ElementRef,
@@ -75,6 +77,12 @@ export class FromEventComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         // this.fromEvent();
+        this.list = [1, 2, 3, 4, 5].map(item => {
+            return {
+                status: 'zero',
+                name: 'test',
+            };
+        });
         this.data$.subscribe(value => {
             console.log('value', value);
         });
@@ -100,7 +108,7 @@ export class FromEventComponent implements OnInit, AfterViewInit {
             this.render.setStyle(devDom, 'left', x + 'px');
             this.render.appendChild(this.el.nativeElement, devDom);
             // 500毫秒后删除dom
-            timer(500).subscribe( num => {
+            timer(500).subscribe(num => {
                 this.render.removeChild(this.el.nativeElement, devDom);
             });
         });
@@ -112,8 +120,11 @@ export class FromEventComponent implements OnInit, AfterViewInit {
             this.data$.next(Math.floor(Math.random() * 5));
             console.log('button click value', this.data$.getValue());
             const index = Math.floor(Math.random() * (this.list.length - 1));
-            this.list[index] = Math.floor(Math.random() * 10);
+            const preItem = this.list[index];
+            this.list[index].status = FromEventComponent.getStatus(preItem.status);
         });
     }
+
+
 
 }

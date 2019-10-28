@@ -2,8 +2,8 @@
 <button mat-button #createButton>产生数据</button>
 <ul>
     <li *ngFor="let item of list"
-        [@openClose]="item % 2 ? 'open': 'closed'"
+        [@priceChange]="item.status"
     >
-        {{item}} 范德萨发的方法的是否违反的双丰收
+        {{item.name}} 范德萨发的方法的是否违反的双丰收
     </li>
 </ul>
