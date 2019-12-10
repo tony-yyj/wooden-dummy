@@ -4,7 +4,7 @@ import { BehaviorSubject, interval } from 'rxjs';
 @Component({
     selector: 'app-subject',
     templateUrl: './subject.component.html',
-    styleUrls: ['./subject.component.less']
+    styleUrls: ['./subject.component.scss']
 })
 export class SubjectComponent implements OnInit {
 
@@ -18,7 +18,7 @@ export class SubjectComponent implements OnInit {
         this.behaviorSub.subscribe(data => {
             console.log('behavior subject: ', data);
         });
-        
+
         interval(1000).subscribe(data => {
             this.behaviorSub.next(data);
             if (data === 10) {
@@ -30,7 +30,7 @@ export class SubjectComponent implements OnInit {
 
 
     getValue() {
-        this.lastValue = this.behaviorSub.getValue(); 
+        this.lastValue = this.behaviorSub.getValue();
     }
 
 

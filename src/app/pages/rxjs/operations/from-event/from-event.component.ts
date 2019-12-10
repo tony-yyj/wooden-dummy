@@ -6,7 +6,7 @@ import {animate, keyframes, state, style, transition, trigger} from '@angular/an
 @Component({
     selector: 'app-from-event',
     templateUrl: './from-event.component.html',
-    styleUrls: ['./from-event.component.less'],
+    styleUrls: ['./from-event.component.scss'],
     animations: [
         trigger('openClose', [
             // state('open', style({

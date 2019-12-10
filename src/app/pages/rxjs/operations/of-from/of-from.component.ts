@@ -6,7 +6,7 @@ import {fromPromise} from 'rxjs/internal-compatibility';
 @Component({
     selector: 'app-of-from',
     templateUrl: './of-from.component.html',
-    styleUrls: ['./of-from.component.less']
+    styleUrls: ['./of-from.component.scss']
 })
 export class OfFromComponent implements OnInit {
 

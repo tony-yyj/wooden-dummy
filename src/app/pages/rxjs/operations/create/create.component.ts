@@ -4,7 +4,7 @@ import {interval, Observable, Observer, TeardownLogic, timer} from 'rxjs';
 @Component({
     selector: 'app-create',
     templateUrl: './create.component.html',
-    styleUrls: ['./create.component.less']
+    styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
 
