@@ -6,13 +6,11 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MainModule } from './pages/main/main.module';
-import { ContactsAppComponent } from './contacts-app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
         AppComponent,
-        ContactsAppComponent,
     ],
     imports: [
         BrowserModule,

@@ -7,9 +7,6 @@ import {Component, OnInit} from '@angular/core';
 })
 export class RxjsComponent implements OnInit {
 
-    rxjsMenu: string[] = ['a', 'b'];
-
-
     constructor() {
     }
 

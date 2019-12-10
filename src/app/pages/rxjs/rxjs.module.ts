@@ -1,12 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { CreateComponent } from './create/create.component';
+import { CreateComponent } from './operations/create/create.component';
 import {RouterModule, Routes} from '@angular/router';
-import { OfFromComponent } from './of-from/of-from.component';
+import { OfFromComponent } from './operations/of-from/of-from.component';
 import {MatButtonModule, MatMenuModule} from '@angular/material';
 import { RxjsComponent } from './rxjs/rxjs.component';
-import { FromEventComponent } from './from-event/from-event.component';
-import { SubjectComponent } from './subject/subject.component';
+import { FromEventComponent } from './operations/from-event/from-event.component';
+import { SubjectComponent } from './operations/subject/subject.component';
+import {OperationsModule} from './operations/operations.module';
 const router: Routes = [
     {
         path: '',
@@ -38,12 +39,15 @@ const router: Routes = [
 ];
 
 @NgModule({
-    declarations: [CreateComponent, OfFromComponent, RxjsComponent, FromEventComponent, SubjectComponent],
+    declarations: [
+        RxjsComponent,
+    ],
     imports: [
         CommonModule,
         RouterModule.forChild(router),
         MatButtonModule,
         MatMenuModule,
+        OperationsModule,
     ]
 })
 export class RxjsModule {
