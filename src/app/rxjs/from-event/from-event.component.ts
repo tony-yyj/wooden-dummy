@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from
 import {BehaviorSubject, fromEvent, timer} from 'rxjs';
 import {MatButton} from '@angular/material';
 import {animate, keyframes, state, style, transition, trigger, useAnimation} from '@angular/animations';
-import {fallColor, PairsPriceAnimation, raiseColor} from '../../../animations/pairs-price.animation';
+import {fallColor, PairsPriceAnimation, raiseColor} from '../../animations/pairs-price.animation';
 
 @Component({
     selector: 'app-from-event',

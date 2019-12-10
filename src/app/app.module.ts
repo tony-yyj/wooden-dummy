@@ -6,10 +6,9 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeroChildComponent} from './hero-child.component';
 import {HeroParentComponent} from './hero-parent.component';
+import {RouterTestModule} from './router-test/router-test.module';
 import {DynamicFormComponent} from './dynamic-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MyDirective } from './directives/my-directive.directive';
-import { MainModule } from './pages/main/main.module';
 
 @NgModule({
     declarations: [
@@ -22,9 +21,9 @@ import { MainModule } from './pages/main/main.module';
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
+        RouterTestModule,
         FormsModule,
         ReactiveFormsModule,
-        MainModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

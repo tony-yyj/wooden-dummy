@@ -4,8 +4,13 @@ import {DynamicFormComponent} from './dynamic-form.component';
 
 const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'rxjs',
+        pathMatch: 'full',
+    },
+    {
         path: 'rxjs',
-        loadChildren: () => import('./pages/rxjs/rxjs.module').then(m => m.RxjsModule),
+        loadChildren: () => import('./rxjs/rxjs.module').then(m => m.RxjsModule),
     },
     {
         path: 'dynamic-form',
