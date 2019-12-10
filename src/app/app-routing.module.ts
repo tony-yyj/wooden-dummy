@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DynamicFormComponent} from './dynamic-form.component';
+import { AppComponent } from './app.component';
 
-const routes: Routes = [
+// const routes: Routes = [
+//     {
+//         path: 'rxjs',
+//         loadChildren: () => import('./pages/rxjs/rxjs.module').then(m => m.RxjsModule),
+//     },
+//     {
+//         path: 'dynamic-form',
+//         component: DynamicFormComponent,
+//     }
+// ];
+
+const router:Routes = [
     {
         path: '',
-        redirectTo: 'rxjs',
-        pathMatch: 'full',
-    },
-    {
-        path: 'rxjs',
-        loadChildren: () => import('./rxjs/rxjs.module').then(m => m.RxjsModule),
-    },
-    {
-        path: 'dynamic-form',
-        component: DynamicFormComponent,
+        component: AppComponent,
     }
-];
-
+]
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(router)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

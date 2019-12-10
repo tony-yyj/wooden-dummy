@@ -4,26 +4,24 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HeroChildComponent} from './hero-child.component';
-import {HeroParentComponent} from './hero-parent.component';
-import {RouterTestModule} from './router-test/router-test.module';
-import {DynamicFormComponent} from './dynamic-form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MainModule } from './pages/main/main.module';
+import { ContactsAppComponent } from './contacts-app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
         AppComponent,
-        HeroChildComponent,
-        HeroParentComponent,
-        DynamicFormComponent,
+        ContactsAppComponent,
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
-        RouterTestModule,
         FormsModule,
         ReactiveFormsModule,
+        MainModule,
+        HttpClientModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
