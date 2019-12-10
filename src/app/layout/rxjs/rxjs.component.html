@@ -5,5 +5,9 @@
         <button mat-menu-item routerLink="of-from">of-from</button>
         <button mat-menu-item routerLink="from-event">from-event</button>
     </mat-menu>
+    <button mat-button [matMenuTriggerFor]="practicesMenu">Practices</button>
+    <mat-menu #practicesMenu>
+        <button mat-menu-item routerLink="drag-box">drag-box</button>
+    </mat-menu>
 </div>
 <router-outlet></router-outlet>

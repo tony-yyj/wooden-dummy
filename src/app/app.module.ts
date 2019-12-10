@@ -7,6 +7,7 @@ import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MainModule } from './pages/main/main.module';
 import { HttpClientModule } from '@angular/common/http';
+import {LayoutModule} from './layout/layout.module';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
         ReactiveFormsModule,
         MainModule,
         HttpClientModule,
+        LayoutModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

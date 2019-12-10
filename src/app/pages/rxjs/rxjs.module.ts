@@ -1,46 +1,19 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { CreateComponent } from './operations/create/create.component';
 import {RouterModule, Routes} from '@angular/router';
-import { OfFromComponent } from './operations/of-from/of-from.component';
 import {MatButtonModule, MatMenuModule} from '@angular/material';
-import { RxjsComponent } from './rxjs/rxjs.component';
-import { FromEventComponent } from './operations/from-event/from-event.component';
-import { SubjectComponent } from './operations/subject/subject.component';
 import {OperationsModule} from './operations/operations.module';
+import {PracticeModule} from './practice/practice.module';
 const router: Routes = [
     {
         path: '',
-        component: RxjsComponent,
-        children: [
-            {
-                path: '',
-                redirectTo: 'create',
-                pathMatch: 'full',
-            },
-            {
-                path: 'create',
-                component: CreateComponent,
-            },
-            {
-                path: 'of-from',
-                component: OfFromComponent,
-            },
-            {
-                path: 'subject',
-                component: SubjectComponent,
-            },
-            {
-                path: 'from-event',
-                component: FromEventComponent,
-            }
-        ]
+        redirectTo: 'create',
+        pathMatch: 'full',
     },
 ];
 
 @NgModule({
     declarations: [
-        RxjsComponent,
     ],
     imports: [
         CommonModule,
@@ -48,6 +21,7 @@ const router: Routes = [
         MatButtonModule,
         MatMenuModule,
         OperationsModule,
+        PracticeModule,
     ]
 })
 export class RxjsModule {

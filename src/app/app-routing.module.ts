@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {RxjsComponent} from './layout/rxjs/rxjs.component';
 
 const router: Routes = [
     {
@@ -8,6 +9,7 @@ const router: Routes = [
     },
     {
         path: 'rxjs',
+        component: RxjsComponent,
         loadChildren: () => import('./pages/rxjs/rxjs.module').then(m => m.RxjsModule),
     },
 ];
